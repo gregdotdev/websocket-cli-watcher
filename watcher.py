@@ -28,7 +28,7 @@ def on_message(ws, message):
     global last_price
     data = json.loads(message)
     try:
-        # Para Binance, o preço vem em 'p' e o evento é 'trade'
+        
         if data.get("e") == "trade":
             price = float(data['p'])
             if price != last_price:
@@ -38,7 +38,7 @@ def on_message(ws, message):
         pass
 
 def on_open(ws):
-    pass  # Não precisa enviar nada para Binance para stream público
+    pass  
 
 ws = websocket.WebSocketApp(
     "wss://stream.binance.com:9443/ws/ltcbrl@trade",
